@@ -362,11 +362,12 @@ This is generating `.mbtiles` for your area :  [ MIN_ZOOM: "0"  - MAX_ZOOM: "7" 
 ./quickstart.sh yukon          # Yukon,canada
 ```
 ### Using your own OSM data
-Mbtiles can be generated from an arbitrary osm.pbf (e.g. for a region that is not covered by an existing extract) by making the `data/` directory and placing an osm.pbf inside/
+Mbtiles can be generated from an arbitrary osm.pbf (e.g. for a region that is not covered by an existing extract) by making the `data/` directory,  placing a osm.pbf inside, and  using [osmconvert](https://wiki.openstreetmap.org/wiki/Osmconvert) to generate some metadata.
 
 ```
 mkdir -p data
 mv my.osm.pbf data/
+osmconvert --out-statistics my.osm.pbf > ./osmstat.txt
 ./quickstart.sh my
 ```
 
